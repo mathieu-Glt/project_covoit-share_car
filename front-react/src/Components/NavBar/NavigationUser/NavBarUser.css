@@ -1,0 +1,42 @@
+ 
+  nav li .activeLink{
+    color: white;
+    
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: white;
+  }
+
+  .user-img{
+    width:40px; 
+  }
+  .association-img{
+    width:50px;
+  }
+  .message-img{
+    width:40px;
+  }
+  .evenement-img{
+    width:40px;
+  }
+  .profil-img{
+    width:40px;
+}
+
+.item::after{
+    content: '';
+    width: 0px;
+    height: 3px;
+    display: block;
+    background: #3498db;
+    transition: 300ms;
+}
+
+.item:hover::after{
+    width: 70%;
+}

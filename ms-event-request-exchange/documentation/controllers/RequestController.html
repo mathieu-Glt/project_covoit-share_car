@@ -1,0 +1,1931 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ms-event-request-exchange documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ms-event-request-exchange documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >RequestController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/Request/request.controller.ts</code>
+        </p>
+
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createRequest" >createRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteRequest" >deleteRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllExchangesByRequest" >findAllExchangesByRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllRequests" >findAllRequests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllRequestsByAsso" >findAllRequestsByAsso</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllRequestsByEvents" >findAllRequestsByEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllRequestsByExchangeMadeByUser" >findAllRequestsByExchangeMadeByUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllRequestUserId" >findAllRequestUserId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findEschangeById" >findEschangeById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findExchangeByUser" >findExchangeByUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findRequestByExchangeId" >findRequestByExchangeId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findRequestId" >findRequestId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#newExchangeToRequest" >newExchangeToRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#replyToExchangeReceived" >replyToExchangeReceived</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateRequest" >updateRequest</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createRequest"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createRequest</b></span>
+                        <a href="#createRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createRequest(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>, body: <a href="../classes/RequestDto.html" target="_self">RequestDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;CREATE_REQUEST&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/Request/request.controller.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Create a new request from an event
+POST - &#39;request/create/:id &#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  event ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../classes/RequestDto.html" target="_self" >RequestDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>RequestDto<br>POST - &#39;request/create/:id &#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteRequest"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>deleteRequest</b></span>
+                        <a href="#deleteRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteRequest(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;DELETE_REQUEST&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/Request/request.controller.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Delete a request
+DELETE - &#39;request/delete/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  request ID<br>DELETE - &#39;request/delete/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllExchangesByRequest"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllExchangesByRequest</b></span>
+                        <a href="#findAllExchangesByRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllExchangesByRequest(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;EXCHANGES_BY_REQUEST&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="220"
+                                    class="link-to-prism">src/Request/request.controller.ts:220</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all the exchanges made on an request
+GET - &#39;exchange/byRequest/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  request ID 
+GET - &#39;exchange/byRequest/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;ExchangeRequestDocument[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllRequests"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllRequests</b></span>
+                        <a href="#findAllRequests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllRequests()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;INDEX_REQUESTS&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/Request/request.controller.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests on the app
+GET - &#39;requests&#39;</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllRequestsByAsso"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllRequestsByAsso</b></span>
+                        <a href="#findAllRequestsByAsso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllRequestsByAsso(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;REQUESTS_BY_ASSO&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/Request/request.controller.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests published by association ID
+GET - &#39;requests/asso/id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  association ID 
+GET - &#39;requests/asso/id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllRequestsByEvents"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllRequestsByEvents</b></span>
+                        <a href="#findAllRequestsByEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllRequestsByEvents(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;REQUESTS_BY_EVENT&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/Request/request.controller.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests published on an event
+GET - &#39;requests/event/id &#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  event ID 
+GET - &#39;requests/event/id &#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllRequestsByExchangeMadeByUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllRequestsByExchangeMadeByUser</b></span>
+                        <a href="#findAllRequestsByExchangeMadeByUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllRequestsByExchangeMadeByUser(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;REQUESTS_BY_EXCHANGE_BY_USER&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/Request/request.controller.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests an user has replied to (exchanges)
+GET - &#39;prefix requests/byExchange/ByUser/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  USER ID
+GET - &#39;prefix requests/byExchange/ByUser/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllRequestUserId"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllRequestUserId</b></span>
+                        <a href="#findAllRequestUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllRequestUserId(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;REQUESTS_BY_USER_ID&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/Request/request.controller.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests from an user ID
+GET - &#39;requests/user/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  USER ID
+GET - &#39;requests/user/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;object&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findEschangeById"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findEschangeById</b></span>
+                        <a href="#findEschangeById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findEschangeById(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;EXCHANGE_REQUEST_BY_ID&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/Request/request.controller.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve exchange by its id
+GET - &#39;exchange/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  request ID 
+GET - &#39;exchange/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;ExchangeRequestDocument&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findExchangeByUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findExchangeByUser</b></span>
+                        <a href="#findExchangeByUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findExchangeByUser(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;EXCHANGE_BY_USER&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">src/Request/request.controller.ts:234</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all the exchanges made by a provided user
+GET - &#39;exchange/byUser/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  userID 
+GET - &#39;exchange/byUser/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findRequestByExchangeId"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findRequestByExchangeId</b></span>
+                        <a href="#findRequestByExchangeId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findRequestByExchangeId(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;GET_REQUEST_BY_EXCHANGE&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/Request/request.controller.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve a request through its exchange ID
+GET - &#39;request/byExchange/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  exchange ID
+GET - &#39;request/byExchange/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findRequestId"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findRequestId</b></span>
+                        <a href="#findRequestId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findRequestId(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;GET_REQUEST_BY_ID&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/Request/request.controller.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve a request through its ID
+GET - &#39;request/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  User ID
+GET - &#39;request/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newExchangeToRequest"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>newExchangeToRequest</b></span>
+                        <a href="#newExchangeToRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newExchangeToRequest(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>, body: <a href="../classes/ExchangeDto.html" target="_self">ExchangeDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;CREATE_EXCHANGE_TO_REQUEST_ID&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/Request/request.controller.ts:187</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creation of an exchange on a request
+POST - &#39;exchange/create/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  request ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../classes/ExchangeDto.html" target="_self" >ExchangeDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>exchangeDto<br>POST - &#39;exchange/create/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;ExchangeRequestDocument&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="replyToExchangeReceived"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>replyToExchangeReceived</b></span>
+                        <a href="#replyToExchangeReceived"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>replyToExchangeReceived(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>, body: <a href="../interfaces/ExchangeInterface.html" target="_self">ExchangeInterface</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;REPLY_TO_EXCHANGE&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="253"
+                                    class="link-to-prism">src/Request/request.controller.ts:253</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Modification of an exchange by the user whi posted it
+the user received an exchange and replies to it
+POST - &#39;exchange/reply/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  exchange ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ExchangeInterface.html" target="_self" >ExchangeInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ExchangeInterface<br>POST - &#39;exchange/reply/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;ExchangeRequestDocument&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateRequest"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>updateRequest</b></span>
+                        <a href="#updateRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateRequest(params: <a href="../classes/IdDto.html" target="_self">IdDto</a>, body: <a href="../classes/RequestDto.html" target="_self">RequestDto</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@MessagePattern(&#x27;UPDATE_REQUEST&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/Request/request.controller.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Modification of a request
+POST - &#39;request/update/:id&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../classes/IdDto.html" target="_self" >IdDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>IdDto -  request ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../classes/RequestDto.html" target="_self" >RequestDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>RequestDto<br>POST - &#39;request/update/:id&#39;</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, NotFoundException, UseInterceptors, ValidationPipe } from &#x27;@nestjs/common&#x27;
+import { RpcSuccessInterceptor } from &#x27;src/Interceptor/RpcSuccessInterceptor&#x27;
+import { ExchangeRequestDocument } from &#x27;./Schema/exchangeRequest.schema&#x27;
+import { ExchangeInterface } from &#x27;./interface/response.interface&#x27;
+import { MessagePattern, Payload } from &#x27;@nestjs/microservices&#x27;
+import { RequestDocument } from &#x27;./Schema/request.schema&#x27;
+import { RequestService } from &#x27;./request.service&#x27;
+import { ExchangeDto } from &#x27;./Dto/exchange.dto&#x27;
+import { RequestDto } from &#x27;./Dto/request.dto&#x27;
+import { IdDto } from &#x27;src/Event/Dto/id.dto&#x27;
+
+// Controller responsible for handling API endpoints related to REQUESTS and EXCHANGES
+@Controller()
+@UseInterceptors(RpcSuccessInterceptor)
+export class RequestController {
+
+    constructor(
+        private readonly requestService: RequestService,
+    ) { }
+
+    /**
+     * Retrieve a request through its ID 
+     * @param params - IdDto -  User ID
+     * GET - &#x27;request/:id&#x27;
+     */
+    @MessagePattern(&#x27;GET_REQUEST_BY_ID&#x27;)
+    async findRequestId(@Payload(&#x27;params&#x27;) params: IdDto):Promise&lt;RequestDocument&gt; {
+        try {
+            return await this.requestService.getRequestById(params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve a request through its exchange ID 
+     * @param params - IdDto -  exchange ID
+     * GET - &#x27;request/byExchange/:id&#x27;
+     */
+    @MessagePattern(&#x27;GET_REQUEST_BY_EXCHANGE&#x27;)
+    async findRequestByExchangeId(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto):Promise&lt;RequestDocument&gt; {
+        try {
+            return await this.requestService.getRequestByExchangeId(params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    //TODO A VOIR SI ON GARDE 
+    /**
+     * Retrieve all requests on the app 
+     * GET - &#x27;requests&#x27;
+     */
+    @MessagePattern(&#x27;INDEX_REQUESTS&#x27;)
+    async findAllRequests():Promise&lt;RequestDocument[]&gt;{
+        try {
+            return await this.requestService.getAllRequests()
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all requests from an user ID 
+     * @param params - IdDto -  USER ID
+     * GET - &#x27;requests/user/:id&#x27;
+     */
+    @MessagePattern(&#x27;REQUESTS_BY_USER_ID&#x27;)
+    // async findAllRequestUserId(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto): Promise&lt;RequestDocument[]&gt; {
+        async findAllRequestUserId(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto): Promise&lt;object&gt; {
+            try {
+            // const response &#x3D; await this.requestService.getRequestsByUserId(params.id)
+            const response &#x3D; await this.requestService.findRequestRelatedToUserForEvent(params.id)
+            console.log(&quot;🚀 ~ file: request.controller.ts:74 ~ findAllRequestUserId ~ response:&quot;, response)
+            if (!response) {
+                throw new NotFoundException(&#x27;No request found&#x27;)
+            }
+            return response
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all requests an user has replied to (exchanges)
+     * @param params - IdDto -  USER ID
+     * GET - &#x27;prefix requests/byExchange/ByUser/:id&#x27;
+     */
+    @MessagePattern(&#x27;REQUESTS_BY_EXCHANGE_BY_USER&#x27;)
+    async findAllRequestsByExchangeMadeByUser(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto): Promise&lt;RequestDocument[]&gt; {
+        try {
+            return await this.requestService.getAllRequestsByExchangeMadeByUser(params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all requests published on an event 
+     * @param params - IdDto -  event ID 
+     * GET - &#x27;requests/event/id &#x27;
+     */
+    @MessagePattern(&#x27;REQUESTS_BY_EVENT&#x27;)
+    async findAllRequestsByEvents(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto): Promise&lt;RequestDocument[]&gt; {
+        try {
+            return await this.requestService.getAllRequestsByEvent(params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all requests published by association ID 
+     * @param params - IdDto -  association ID 
+     * GET - &#x27;requests/asso/id&#x27;
+     */
+    @MessagePattern(&#x27;REQUESTS_BY_ASSO&#x27;)
+    async findAllRequestsByAsso(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto): Promise&lt;RequestDocument[]&gt; {
+        try {
+            return await this.requestService.getAllRequestsByAsso(params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+        // TODO crée une requête qui permet de crée une nouvelle requests
+        // TODO la faire dans  le fichier request.controller.ts ds le dossier ms-event-request-exchange
+
+    /**
+     * Modification of a request 
+     * @param params - IdDto -  request ID  
+     * @param body - RequestDto  
+     * POST - &#x27;request/update/:id&#x27;
+     */
+    @MessagePattern(&#x27;UPDATE_REQUEST&#x27;)
+    async updateRequest(
+        @Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto, 
+        @Payload(&#x27;body&#x27;) body: RequestDto ):Promise&lt;RequestDocument&gt; {
+        try {
+            return await this.requestService.editRequest(params.id, body)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Create a new request from an event  
+     * @param params - IdDto -  event ID  
+     * @param body - RequestDto  
+     * POST - &#x27;request/create/:id &#x27;
+     */
+    @MessagePattern(&#x27;CREATE_REQUEST&#x27;)
+    async createRequest(
+        @Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto, 
+        @Payload(&#x27;body&#x27;) body: RequestDto):Promise&lt;RequestDocument&gt; {
+        try {
+            return await this.requestService.createRequestEvent(body, params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Delete a request 
+     * @param params - IdDto -  request ID  
+     * DELETE - &#x27;request/delete/:id&#x27;
+     */
+    @MessagePattern(&#x27;DELETE_REQUEST&#x27;)
+    async deleteRequest(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto):Promise&lt;void&gt; {
+        try {
+            const request &#x3D; await this.requestService.deleteRequest(params.id)
+            console.log(&quot;🚀 ~ file: request.controller.ts:172 ~ deleteRequest ~ request:&quot;, request)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    //*************** EXCHANGE ****************//
+
+    /**
+     * Creation of an exchange on a request 
+     * @param params - IdDto -  request ID 
+     * @param body - exchangeDto  
+     * POST - &#x27;exchange/create/:id&#x27;
+     */
+    @MessagePattern(&#x27;CREATE_EXCHANGE_TO_REQUEST_ID&#x27;) 
+    async newExchangeToRequest(
+        @Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto, 
+        @Payload(&#x27;body&#x27;) body: ExchangeDto): Promise&lt;ExchangeRequestDocument&gt;
+    {
+        try {
+            return this.requestService.createExchangeToRequest(params.id, body)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /***
+     * Retrieve exchange by its id
+     * @param params - IdDto -  request ID 
+     * GET - &#x27;exchange/:id&#x27;
+     */
+    @MessagePattern(&#x27;EXCHANGE_REQUEST_BY_ID&#x27;)
+    async findEschangeById(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto): Promise&lt;ExchangeRequestDocument&gt; {
+        try {
+            return  await this.requestService.getExchangeById(params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+
+        }
+    }
+
+
+    /**
+     * Retrieve all the exchanges made on an request 
+     * @param params - IdDto -  request ID 
+     * GET - &#x27;exchange/byRequest/:id&#x27;
+     */
+    @MessagePattern(&#x27;EXCHANGES_BY_REQUEST&#x27;)
+    async findAllExchangesByRequest(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto): Promise&lt;ExchangeRequestDocument[]&gt; {
+        try {
+            return await this.requestService.getAllExchangesByRequest(params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all the exchanges made by a provided user 
+     * @param params - IdDto -  userID 
+     * GET - &#x27;exchange/byUser/:id&#x27;
+     */
+    @MessagePattern(&#x27;EXCHANGE_BY_USER&#x27;)
+    async findExchangeByUser(@Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto) {;
+        try {
+            return await this.requestService.getExchangesByUser(params.id)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    //MODIFICATION D UNE EXCHANGE L UTILISATEUR QUI A PUBLIE LA REQUEST
+    //L&#x27;utilisateur qui a publié une annonce a reçu une réponse et il peut y répondre 
+    //POST : prefix: exchange/reply/:id
+    /**
+     * Modification of an exchange by the user whi posted it 
+     * the user received an exchange and replies to it  
+     * @param params - IdDto -  exchange ID 
+     * @param body - ExchangeInterface  
+     * POST - &#x27;exchange/reply/:id&#x27;
+     */
+    @MessagePattern(&#x27;REPLY_TO_EXCHANGE&#x27;)
+    async replyToExchangeReceived(
+        @Payload(&#x27;params&#x27;, new ValidationPipe()) params: IdDto, /*EXCHANGE ID */
+        @Payload(&#x27;body&#x27;) body: ExchangeInterface): Promise&lt;ExchangeRequestDocument&gt;
+    {
+        try {
+            return await this.requestService.replyToExchangeReceived(params.id, body)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'RequestController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

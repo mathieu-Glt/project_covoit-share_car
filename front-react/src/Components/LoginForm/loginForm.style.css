@@ -1,0 +1,26 @@
+.forgotPassword{
+    cursor: pointer;
+    
+}
+
+.email_valid {
+    color: rgb(0, 177, 0);
+    border: 2px solid rgb(0, 177, 0);
+
+}
+
+.email_invalid {
+    color: red;
+    border: 2px solid red;
+}
+
+.password_valide {
+    color: rgb(0, 177, 0);
+    border: 2px solid rgb(0, 177, 0);
+
+}
+
+.password_invalide {
+    color: red;
+    border: 2px solid red;
+}

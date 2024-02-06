@@ -1,0 +1,648 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ms-medias documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ms-medias documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  IGridFSWriteOption</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/utils/mongo-gridfs.util.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#aliases" 
+>
+                                            aliases
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#chunkSizeBytes" 
+>
+                                            chunkSizeBytes
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#contentType" 
+>
+                                            contentType
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#filename" 
+>
+                                            filename
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#metadata" 
+>
+                                            metadata
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="aliases"></a>
+                                        <span class="name "><b>aliases</b>
+                                            <a href="#aliases">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>aliases:     <code>string[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string[]</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="chunkSizeBytes"></a>
+                                        <span class="name "><b>chunkSizeBytes</b>
+                                            <a href="#chunkSizeBytes">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>chunkSizeBytes:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="contentType"></a>
+                                        <span class="name "><b>contentType</b>
+                                            <a href="#contentType">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>contentType:     <code>string | undefined</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | undefined</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="filename"></a>
+                                        <span class="name "><b>filename</b>
+                                            <a href="#filename">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>filename:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="metadata"></a>
+                                        <span class="name "><b>metadata</b>
+                                            <a href="#metadata">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>metadata:         <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectID } from &#x27;bson&#x27;;
+import * as fs from &#x27;fs&#x27;;
+import { Db, GridFSBucket, GridFSBucketReadStream } from &#x27;mongodb&#x27;;
+import osTmpdir &#x3D; require(&#x27;os-tmpdir&#x27;);
+import { Stream } from &#x27;stream&#x27;;
+import uniqueFilename &#x3D; require(&#x27;unique-filename&#x27;);
+
+export interface IGridFSObject {
+    _id: ObjectID;
+    length: number;
+    chunkSize: number;
+    uploadDate: Date;
+    md5?: string;
+    filename: string;
+    contentType?: string | undefined;
+    metadata?: any;
+}
+
+export interface IGridFSWriteOption {
+    filename: string;
+    chunkSizeBytes?: number;
+    metadata?: any;
+    contentType?: string | undefined;
+    aliases?: string[];
+}
+
+export interface IDownloadOptions {
+    filename: boolean | string;
+    targetDir?: string;
+}
+
+export class MongoGridFS {
+
+    /**
+     * Constructor
+     * @param {connection} connection
+     * @param {string} bucketName
+     */
+    constructor(public readonly connection: Db, public readonly bucketName: string &#x3D; &#x27;fs&#x27;) {
+    }
+
+    public get bucket(): GridFSBucket {
+        return new GridFSBucket(this.connection, { bucketName: this.bucketName });
+    }
+
+    public static getDownloadPath(object: IGridFSObject, options: IDownloadOptions &#x3D; {
+        filename: false,
+    }) {
+        let finalPath &#x3D; &#x27;&#x27;;
+        if (!options.targetDir) {
+            if (typeof options.filename &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+                finalPath &#x3D; &#x60;${osTmpdir()}/${options.filename}&#x60;;
+            } else {
+                if (options.filename &#x3D;&#x3D;&#x3D; true) {
+                    finalPath &#x3D; &#x60;${osTmpdir()}/${object._id}&#x60;;
+                } else {
+                    finalPath &#x3D; uniqueFilename(osTmpdir());
+                }
+            }
+        } else {
+            if (typeof options.filename &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+                finalPath &#x3D; &#x60;${options.targetDir}/${options.filename}&#x60;;
+            } else {
+                if (options.filename &#x3D;&#x3D;&#x3D; true) {
+                    finalPath &#x3D; object.filename;
+                } else {
+                    finalPath &#x3D; uniqueFilename(options.targetDir);
+                }
+            }
+        }
+        return finalPath;
+    }
+
+    /**
+     * Returns a stream of a file from the GridFS.
+     * @param {string} id
+     * @return {Promise&lt;GridFSBucketReadStream&gt;}
+     */
+    public async readFileStream(id: string): Promise&lt;GridFSBucketReadStream&gt; {
+        const object &#x3D; await this.findById(id);
+        return this.bucket.openDownloadStream(object._id);
+    }
+
+    /**
+     * Save the File from the GridFs to the filesystem and get the Path back
+     * @param {string} id
+     * @param {IDownloadOptions} options
+     * @return {Promise&lt;string&gt;}
+     */
+    public async downloadFile(id: string, options?: IDownloadOptions): Promise&lt;string&gt; {
+        const object &#x3D; await this.findById(id);
+        const downloadPath &#x3D; MongoGridFS.getDownloadPath(object, options);
+        return new Promise&lt;string&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.bucket.openDownloadStream(object._id)
+                .once(&#x27;error&#x27;, async (error) &#x3D;&gt; {
+                    reject(error);
+                })
+                .once(&#x27;end&#x27;, async () &#x3D;&gt; {
+                    resolve(downloadPath);
+                })
+                .pipe(fs.createWriteStream(downloadPath, {}));
+        });
+    }
+
+    /**
+     * Find a single object by id
+     * @param {string} id
+     * @return {Promise&lt;IGridFSObject&gt;}
+     */
+    public async findById(id: string): Promise&lt;IGridFSObject&gt; {
+        return await this.findOne({ _id: new ObjectID(id) });
+    }
+
+    /**
+     * Find a single object by condition
+     * @param filter
+     * @return {Promise&lt;IGridFSObject&gt;}
+     */
+    public async findOne(filter: any): Promise&lt;IGridFSObject&gt; {
+        const result &#x3D; await this.find(filter);
+        if (result.length &#x3D;&#x3D;&#x3D; 0) {
+            throw new Error(&#x27;No Object found&#x27;);
+        }
+        return result[0];
+    }
+
+    /**
+     * Find a list of object by condition
+     * @param filter
+     * @return {Promise&lt;IGridFSObject[]&gt;}
+     */
+    public async find(filter: any): Promise&lt;IGridFSObject[]&gt; {
+        return await this.bucket.find(filter).toArray();
+    }
+
+    /**
+     * Find objects by condition
+     * @param stream
+     * @param options
+     */
+    public writeFileStream(stream: Stream, options: IGridFSWriteOption): Promise&lt;IGridFSObject&gt; {
+        return new Promise((resolve, reject) &#x3D;&gt; stream
+            .pipe(this.bucket.openUploadStream(options.filename, {
+                aliases: options.aliases,
+                chunkSizeBytes: options.chunkSizeBytes,
+                contentType: options.contentType,
+                metadata: options.metadata,
+            }))
+            .on(&#x27;error&#x27;, async (err) &#x3D;&gt; {
+                reject(err);
+            })
+            .on(&#x27;finish&#x27;, async (item: IGridFSObject) &#x3D;&gt; {
+                resolve(item);
+            }),
+        );
+    }
+
+    /**
+     * Upload a file directly from a fs Path
+     * @param {string} uploadFilePath
+     * @param {IGridFSWriteOption} options
+     * @param {boolean} deleteFile
+     * @return {Promise&lt;IGridFSObject&gt;}
+     */
+    public async uploadFile(
+        uploadFilePath: string,
+        options: IGridFSWriteOption,
+        deleteFile: boolean &#x3D; true): Promise&lt;IGridFSObject&gt; {
+        if (!fs.existsSync(uploadFilePath)) {
+            throw new Error(&#x27;File not found&#x27;);
+        }
+        const tryDeleteFile &#x3D; (obj?: any): any &#x3D;&gt; {
+            if (fs.existsSync(uploadFilePath) &amp;&amp; deleteFile &#x3D;&#x3D;&#x3D; true) {
+                fs.unlinkSync(uploadFilePath);
+            }
+            return obj;
+        };
+        return await this.writeFileStream(fs.createReadStream(uploadFilePath), options)
+            .then(tryDeleteFile)
+            .catch((err) &#x3D;&gt; {
+                tryDeleteFile();
+                throw err;
+            });
+    }
+
+    /**
+     * Delete an File from the GridFS
+     * @param {string} id
+     * @return {Promise&lt;boolean&gt;}
+     */
+    public async delete(id: string): Promise&lt;void&gt; {
+        return await this.bucket.delete(new ObjectID(id));
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'IGridFSWriteOption.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

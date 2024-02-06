@@ -1,0 +1,21 @@
+.modal-content{
+    /* transform: translateX(-20%)!important;
+    width: 800px; */
+}
+
+.primary:hover{
+    color: #5dade2;
+}
+
+.title{
+    font-weight: bold;
+    text-align: center;
+}
+
+.text{
+    text-align: center;
+}
+
+.modal-title{
+    text-align: center;
+}

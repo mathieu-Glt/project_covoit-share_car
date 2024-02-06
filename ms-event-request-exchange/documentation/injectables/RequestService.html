@@ -1,0 +1,2290 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ms-event-request-exchange documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ms-event-request-exchange documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >RequestService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/Request/request.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createExchangeToRequest" >createExchangeToRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createRequestEvent" >createRequestEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteRequest" >deleteRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#editExchanges" >editExchanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#editRequest" >editRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findRequestRelatedToUserForEvent" >findRequestRelatedToUserForEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllExchangesByRequest" >getAllExchangesByRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllRequests" >getAllRequests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllRequestsByAsso" >getAllRequestsByAsso</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllRequestsByEvent" >getAllRequestsByEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAllRequestsByExchangeMadeByUser" >getAllRequestsByExchangeMadeByUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getAssoByID" >getAssoByID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getExchangeById" >getExchangeById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getExchangesByUser" >getExchangesByUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getRequestByExchangeId" >getRequestByExchangeId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getRequestById" >getRequestById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getRequestsByUserId" >getRequestsByUserId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#replyToExchangeReceived" >replyToExchangeReceived</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(requestModel: <a href="../classes/Request.html" target="_self">Model&lt;RequestDocument&gt;</a>, ExchangeModel: Model<ExchangeRequestDocument>, eventService: <a href="../injectables/EventService.html" target="_self">EventService</a>, natsMessengerService: <a href="../injectables/NatsMessengerService.html" target="_self">NatsMessengerService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/Request/request.service.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>requestModel</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Request.html" target="_self" >Model&lt;RequestDocument&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ExchangeModel</td>
+                                                  
+                                                        <td>
+                                                                    <code>Model&lt;ExchangeRequestDocument&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>eventService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EventService.html" target="_self" >EventService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>natsMessengerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NatsMessengerService.html" target="_self" >NatsMessengerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createExchangeToRequest"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>createExchangeToRequest</b></span>
+                        <a href="#createExchangeToRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createExchangeToRequest(requestId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../interfaces/ExchangeInterface.html" target="_self">ExchangeInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="326"
+                                    class="link-to-prism">src/Request/request.service.ts:326</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Create an exchange on a request already published</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>requestId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>request ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ExchangeInterface.html" target="_self" >ExchangeInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>ExchangeInterface</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createRequestEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>createRequestEvent</b></span>
+                        <a href="#createRequestEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createRequestEvent(data: <a href="../interfaces/RequestInterface.html" target="_self">RequestInterface</a>, eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">src/Request/request.service.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Create a new request from an event</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/RequestInterface.html" target="_self" >RequestInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>RequestInterface</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>event id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteRequest"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>deleteRequest</b></span>
+                        <a href="#deleteRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteRequest(requestId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="219"
+                                    class="link-to-prism">src/Request/request.service.ts:219</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Delete an existing request</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>requestId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>request id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editExchanges"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>editExchanges</b></span>
+                        <a href="#editExchanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editExchanges(requestId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, exchanges: ExchangeRequestDocument[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="366"
+                                    class="link-to-prism">src/Request/request.service.ts:366</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Modify an exchange on a request already published</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>requestId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>request ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>exchanges</td>
+                                            <td>
+                                                        <code>ExchangeRequestDocument[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>: ExchangeRequestDocument[]</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editRequest"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>editRequest</b></span>
+                        <a href="#editRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editRequest(requestId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../interfaces/RequestInterface.html" target="_self">RequestInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">src/Request/request.service.ts:203</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Modify an existing request</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>requestId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>request id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../interfaces/RequestInterface.html" target="_self" >RequestInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>RequestInterface</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findRequestRelatedToUserForEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findRequestRelatedToUserForEvent</b></span>
+                        <a href="#findRequestRelatedToUserForEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findRequestRelatedToUserForEvent(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="244"
+                                    class="link-to-prism">src/Request/request.service.ts:244</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all the requests of an user</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>user id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;object&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllExchangesByRequest"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllExchangesByRequest</b></span>
+                        <a href="#getAllExchangesByRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllExchangesByRequest(requestId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/Request/request.service.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all exchanges by request</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>requestId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>request id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRequests"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllRequests</b></span>
+                        <a href="#getAllRequests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllRequests()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/Request/request.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all the requests of the app</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRequestsByAsso"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllRequestsByAsso</b></span>
+                        <a href="#getAllRequestsByAsso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllRequestsByAsso(assoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/Request/request.service.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests published in an association</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>assoId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>association id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRequestsByEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllRequestsByEvent</b></span>
+                        <a href="#getAllRequestsByEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllRequestsByEvent(eventId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/Request/request.service.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests published on an event</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>eventId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>event id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRequestsByExchangeMadeByUser"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAllRequestsByExchangeMadeByUser</b></span>
+                        <a href="#getAllRequestsByExchangeMadeByUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllRequestsByExchangeMadeByUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="281"
+                                    class="link-to-prism">src/Request/request.service.ts:281</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests a specific user has replied to (exchange)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>user id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAssoByID"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getAssoByID</b></span>
+                        <a href="#getAssoByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAssoByID(assoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/Request/request.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve an asso through its ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>assoId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>association ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getExchangeById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getExchangeById</b></span>
+                        <a href="#getExchangeById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getExchangeById(exchangeId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="313"
+                                    class="link-to-prism">src/Request/request.service.ts:313</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve an exchange by its ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>exchangeId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>exchange ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;ExchangeRequestDocument&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getExchangesByUser"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getExchangesByUser</b></span>
+                        <a href="#getExchangesByUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getExchangesByUser(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="386"
+                                    class="link-to-prism">src/Request/request.service.ts:386</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all exchanges published by an user</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>-User ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;ExchangeRequestDocument[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRequestByExchangeId"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getRequestByExchangeId</b></span>
+                        <a href="#getRequestByExchangeId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRequestByExchangeId(exchangeId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="428"
+                                    class="link-to-prism">src/Request/request.service.ts:428</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve a request by the id of the exchange</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>exchangeId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>exchange ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRequestById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getRequestById</b></span>
+                        <a href="#getRequestById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRequestById(requestId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/Request/request.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve a request through its ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>requestId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>request ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRequestsByUserId"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getRequestsByUserId</b></span>
+                        <a href="#getRequestsByUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRequestsByUserId(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/Request/request.service.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieve all requests published by an user</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>user id</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Request.html" target="_self" >Promise&lt;RequestDocument[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="replyToExchangeReceived"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>replyToExchangeReceived</b></span>
+                        <a href="#replyToExchangeReceived"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>replyToExchangeReceived(exchangeId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../interfaces/ExchangeInterface.html" target="_self">ExchangeInterface</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="400"
+                                    class="link-to-prism">src/Request/request.service.ts:400</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Response of an exchange request
+Modification of an exchange</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>exchangeId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>exchange ID</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ExchangeInterface.html" target="_self" >ExchangeInterface</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ExchangeInterface</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;ExchangeRequestDocument&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ExchangeInterface, RequestInterface } from &#x27;./interface/response.interface&#x27;
+import { BadRequestException, Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;
+import { ExchangeRequestDocument } from &#x27;./Schema/exchangeRequest.schema&#x27;
+import { NatsMessengerService } from &#x27;@app/nats-messenger&#x27;
+import { RequestDocument } from &#x27;./Schema/request.schema&#x27;
+import { StatusRequestEnum } from &#x27;./Enum/request.enum&#x27;
+import { EventService } from &#x27;src/Event/event.service&#x27;
+import { InjectModel } from &#x27;@nestjs/mongoose&#x27;
+import { Model } from &#x27;mongoose&#x27;
+import * as moment from &#x27;moment&#x27;
+
+// Service responsible for managing operations related to REQUESTS/EXCHANGE
+@Injectable()
+export class RequestService {
+
+  constructor(
+    @InjectModel(&#x27;Request&#x27;)
+    private requestModel: Model&lt;RequestDocument&gt;,
+    @InjectModel(&#x27;ExchangeRequest&#x27;)
+    private ExchangeModel: Model&lt;ExchangeRequestDocument&gt;,
+    private eventService: EventService,
+    private readonly natsMessengerService: NatsMessengerService,
+  ) { }
+
+    /**
+     * Retrieve an asso through its ID  
+     * @param assoId - association ID 
+     */
+    async getAssoByID(assoId: string) {
+        try {
+        //fetch user&#x27;s details with NATS 
+        const association &#x3D; await this.natsMessengerService.send(
+            &#x27;GET_ASSOCIATION_BY_ID&#x27;,
+            { params: { id: assoId } }
+        )
+        return association;
+        } catch (error) {
+        throw new NotFoundException(error)
+        }
+    }
+
+
+    /**
+     * Retrieve a request through its ID  
+     * @param requestId - request ID 
+     */
+    async getRequestById(requestId: string): Promise&lt;RequestDocument&gt; {
+        try {
+            return await this.requestModel.findById(requestId)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+
+    /**
+     * Retrieve all the requests of the app 
+     */
+    async getAllRequests(): Promise&lt;RequestDocument[]&gt; {
+        try {
+            return this.requestModel.find()
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all requests published on an event   
+     * @param eventId - event id  
+     */
+    async getAllRequestsByEvent(eventId: string): Promise&lt;RequestDocument[]&gt; {
+        try {
+            return await this.requestModel.find({ event_id: eventId })
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+    
+    /**
+     * Retrieve all exchanges by request 
+     * @param requestId - request id  
+     */
+    async getAllExchangesByRequest(requestId: string) {
+        try {
+        // Get the request using its ID
+        const thisRequest &#x3D; await this.requestModel.findById(requestId)
+        // Get the exchanges from the request
+        const exchangesIds &#x3D; thisRequest.exchanges
+
+        const exchangesByReq &#x3D; []
+
+        // Loop through each exchange ID in the request
+        for (const exchangesId of exchangesIds) {
+            // Get the exchange using its ID
+            const exchanges &#x3D; await this.getExchangeById(exchangesId)
+            // Get the user ID associated with the exchange
+            const userIdExchanges &#x3D; exchanges.user_id // array of  user ID
+            // Get user exchange information using user ID
+            const userExchangeDetails &#x3D; await this.natsMessengerService.send(
+                &#x27;GET_USER_BY_ID&#x27;,
+                { params: { id: userIdExchanges } }
+            )
+            // Create an object containing user and exchange information
+            exchangesByReq.push({
+                user: userExchangeDetails,
+                exchange: exchanges,
+                // association: associations
+            })
+
+            const asssociations &#x3D; userExchangeDetails.datas.associations
+            
+            // Loop through each association ID in userExchange.datas.associations
+            for (let i &#x3D; 0; i &lt; asssociations.length; i++) {
+                const associationId &#x3D; asssociations[i];
+                // Get association information using association ID
+                const associations &#x3D; await this.getAssoByID(associationId)
+                // Push association information to exchangesByReq
+                exchangesByReq.push({
+                    association: associations
+                })
+            }
+        }
+        // Return the array of exchange information
+        return exchangesByReq
+        } catch (error) {
+        throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all requests published in an association
+     * @param assoId - association id  
+     */
+    async getAllRequestsByAsso(assoId: string):Promise&lt;RequestDocument[]&gt; {
+        try {
+            // Get all users belonging to the association using its ID through NATS
+            const usersByAsso &#x3D; await this.natsMessengerService.send(
+                &#x27;INDEX_USERS_PARENTS_BY_ASSO&#x27;,
+                { params: assoId }
+            )
+
+            // Extract user IDs from usersByAsso
+            const userIds &#x3D; usersByAsso.map(user &#x3D;&gt; user._id)
+
+            const requestsByAsso &#x3D; []
+
+            // Loop through each user ID
+            for (const userId of userIds) {
+                // Get requests by user ID
+                const userRequests &#x3D; await this.getRequestsByUserId(userId)
+
+                if (userRequests) {
+                    // Push user&#x27;s requests to requestsByAsso
+                    requestsByAsso.push(userRequests)
+                }
+            }
+            // Return the array of requests
+            return requestsByAsso
+
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Create a new request from an event 
+     * @param eventId - event id  
+     * @param data - RequestInterface
+     */
+    async createRequestEvent(data: RequestInterface, eventId: string): Promise&lt;RequestDocument&gt; {
+        try {
+            // Check if the event exists
+            const eventExists &#x3D; await this.eventService.getEventById(eventId)
+
+            if (!eventExists) { throw new BadRequestException(&#x27;Event does not exist&#x27;) }
+
+            // Convert the departure_time string to a Date object using moment.js
+            const departureTime &#x3D; moment(data.departure_time, &#x27;YYYY-MM-DD [à] HH:mm&#x27;).toDate()
+
+            // Ensure that the departure time is in the future
+            if (departureTime &lt;&#x3D; new Date()) {throw new Error(&#x27;The departure time must be in the future&#x27;) }
+
+            // Create a new request object with modified data
+            const newBody &#x3D; {
+                ...data,
+                departure_time: data.departure_time,
+                event_id: eventId.toString(),
+            }
+            const newRequest &#x3D; new this.requestModel(newBody)
+            // Save the new request to the database
+            return newRequest.save()
+
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Modify an existing request 
+     * @param requestId - request id  
+     * @param body - RequestInterface
+     */ 
+    async editRequest(requestId: string, body: RequestInterface): Promise&lt;RequestDocument&gt; {
+        try {
+            return await this.requestModel.findByIdAndUpdate(
+                requestId,
+                body,
+                { new: true }
+            )
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Delete an existing request 
+     * @param requestId - request id  
+     */ 
+    async deleteRequest(requestId: string): Promise&lt;RequestDocument&gt; {
+        try {
+            return this.requestModel.findByIdAndRemove(requestId)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all requests published by an user 
+     * @param userId - user id  
+     */ 
+    async getRequestsByUserId(userId: string): Promise&lt;RequestDocument[]&gt; {
+        try {
+            return this.requestModel.find({ userId })
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all the requests of an user
+     * @param userId - user id 
+     */
+
+    async findRequestRelatedToUserForEvent(userId: string): Promise&lt;object&gt; {
+        // const results &#x3D; await this.requestModel.find({ userId: userId })
+        // console.log(&quot;🚀 ~ file: request.service.ts:246 ~ RequestService ~ findRequestRelatedToUserForEvent ~ results:&quot;, results)
+        try {
+           const requests &#x3D; await this.requestModel.aggregate([
+            {
+                $match: { userId: userId } // $match: This stage filters the documents in the requestModel collection to find documents where the userId matches the provided userId.
+            },
+            {
+                $addFields: {
+                    convertedEventId: { $toObjectId: &quot;$eventId&quot; } // This stage adds a new field called convertedEventId to the documents, which is created by converting the eventId field to an ObjectId. This is typically used to perform a lookup on the event collection.
+                }
+            },
+            {
+                $lookup: {
+                    from: &#x27;event&#x27;,
+                    localField: &#x27;convertedEventId&#x27;, //  This stage performs a lookup operation to retrieve documents from the event collection. It matches the convertedEventId field from the requestModel with the _id field in the event collection and stores the results in an array called &#x27;event&#x27;.
+                    foreignField: &#x27;_id&#x27;,
+                    as: &#x27;event&#x27;
+                }
+            },
+            {
+                $unwind: &#x27;$event&#x27; // This stage deconstructs the &#x27;event&#x27; array, effectively flattening it into individual documents.
+            }
+           ]) 
+           console.log(&quot;🚀 ~ file: request.service.ts:251 ~ RequestService ~ findRequestRelatedToUserForEvent ~ requests:&quot;, requests)
+           return requests;
+        } catch (error) {
+            console.log(&quot;🚀 ~ file: request.service.ts:252 ~ RequestService ~ findRequestRelatedToUserForEvent ~ error:&quot;, error)
+            
+        }
+    }
+
+    /**
+     * Retrieve all requests a specific user has replied to (exchange)
+     * @param userId - user id  
+     */   
+    async getAllRequestsByExchangeMadeByUser(userId: string) {
+        try {
+            // Retrieve all exchanges made by the user 
+            const exchangeList &#x3D; await this.ExchangeModel.find({ userId })
+            // Extract exchange IDs from the list of exchanges
+            const exchangeIds: string[] &#x3D; exchangeList.map((exchange: ExchangeRequestDocument) &#x3D;&gt; exchange._id.toString());
+
+            const requestsByExchange &#x3D; []
+
+            // For each exchange, find the associated requests
+            for (const exchangeId of exchangeIds) {
+                // Find requests that have the current exchange&#x27;s ID in their exchanges array
+                const userRequest &#x3D; await this.requestModel.find({
+                    exchanges: [{ _id: exchangeId }]
+                })
+                // if any requests found, push them in the empty array 
+                if (userRequest) { 
+                    requestsByExchange.push(userRequest) 
+                }
+            }
+            return requestsByExchange
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+  //*************** EXCHANGE ****************//
+
+    /**
+     * Retrieve an exchange by its ID 
+     * @param exchangeId - exchange ID 
+     */ 
+    async getExchangeById(exchangeId: string): Promise&lt;ExchangeRequestDocument&gt; {
+        try {
+            return await this.ExchangeModel.findById(exchangeId)
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Create an exchange on a request already published  
+     * @param requestId - request ID 
+     * @param body - ExchangeInterface 
+     */ 
+    async createExchangeToRequest(requestId: string, body: ExchangeInterface) {
+        try {
+            // Create a new exchange
+            const newExchange &#x3D; await this.ExchangeModel.create({
+                user_id: body.user_id, // ID of the user responding to the request 
+                status: StatusRequestEnum.pending // default status : pending 
+            })
+
+            // Retrieve the request using the provided request ID
+            const thisRequest &#x3D; await this.requestModel.findById(requestId)
+            // Add the ID of the new exchange to the exchanges array of the request
+            if (thisRequest) { thisRequest.exchanges.push(newExchange.id) }
+
+            // Update the request to include the new exchange in its exchanges array
+            await this.requestModel.findByIdAndUpdate(requestId, { exchanges: thisRequest.exchanges })
+
+            // Retrieve the ID of the user who published the request
+            const publisherUser &#x3D; await this.natsMessengerService.send(
+                &#x27;GET_USER_BY_ID&#x27;,
+                {
+                    params: { id: thisRequest.userId } // user ID 
+                }
+            )
+
+            // Send an email to the user who published the request
+            // to inform them that someone is interested in their request 
+            await this.natsMessengerService.emitEmailResponseToRequest(publisherUser.datas.email, requestId)
+
+            return newExchange
+
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Modify an exchange on a request already published  
+     * @param requestId - request ID 
+     * @param exchanges: ExchangeRequestDocument[] 
+     */ 
+    async editExchanges(requestId: string, exchanges: ExchangeRequestDocument[]): Promise&lt;void&gt; {
+        try {
+            const updatedRequest &#x3D; await this.requestModel.findByIdAndUpdate(
+                requestId,
+                exchanges,
+                { new: true }
+            )
+
+            if (!updatedRequest) {
+                throw new NotFoundException(&#x27;No request found&#x27;)
+            }
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve all exchanges published by an user  
+     * @param userId -User ID 
+     */ 
+    async getExchangesByUser(userId: string): Promise&lt;ExchangeRequestDocument[]&gt; {
+        try {
+            return await this.ExchangeModel.find({ userId })
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Response of an exchange request 
+     * Modification of an exchange  
+     * @param exchangeId - exchange ID 
+     * @param body ExchangeInterface 
+     */ 
+    async replyToExchangeReceived(exchangeId: string, body: ExchangeInterface): Promise&lt;ExchangeRequestDocument&gt; {
+        try {
+            //Modify the status of the exchange 
+            const exchangedModified &#x3D; await this.ExchangeModel.findByIdAndUpdate(exchangeId, { status: body.status })
+
+            //retrive the email address of the user who responded to the request 
+            const email &#x3D; await this.natsMessengerService.send(
+                &#x27;GET_USER_BY_ID&#x27;,
+                {
+                    params: { id: exchangedModified.user_id } 
+                }
+            )
+
+        //retrieve the request under which the exchange was made 
+        const request &#x3D; await this.getRequestByExchangeId(exchangeId)
+
+        // send an email to the person who replied to the request in order to ask them to go check on the app 
+        if (exchangedModified) await this.natsMessengerService.emitEmailReplyToExchangeReceived(email, request.id)
+        return exchangedModified
+        } catch (error) {
+        throw new NotFoundException(error)
+        }
+    }
+
+    /**
+     * Retrieve a request by the id of the exchange   
+     * @param exchangeId - exchange ID 
+     */ 
+    async getRequestByExchangeId(exchangeId: string): Promise&lt;RequestDocument&gt; {
+        try {
+            const [request] &#x3D; await this.requestModel.find({
+                exchanges: exchangeId
+            })
+            return request
+        } catch (error) {
+            throw new NotFoundException(error)
+        }
+    }
+
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'RequestService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

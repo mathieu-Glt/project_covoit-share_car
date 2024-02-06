@@ -1,0 +1,32 @@
+nav li .activeLink{
+    color: white;
+    
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: white;
+  }
+ .logo-img{
+    width:80px;
+  }
+  
+  .contact-img{
+    width:40px;
+  }
+
+.item::after{
+    content: '';
+    width: 0px;
+    height: 3px;
+    display: block;
+    background: #3498db;
+    transition: 300ms;
+}
+
+.item:hover::after{
+    width: 70%;
+}

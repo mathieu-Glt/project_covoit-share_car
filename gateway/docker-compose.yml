@@ -1,0 +1,67 @@
+networks:
+  main:
+services:
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+    environment:
+    - ALLOW_EMPTY_PASSWORD=yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      timeout: 5s
+      interval: 10s
+      retries: 10
+  nats-1:
+    command:
+      - "--debug"
+      - "--cluster"
+      - "nats://0.0.0.0:6222"
+      - "--http_port"
+      - "8222"
+      - "--port"
+      - "4222"
+    image: "nats:2.8.4"
+    networks:
+      - main
+    ports:
+      - "14222:4222"
+      - "18222:8222"
+  nats-2:
+    command:
+      - "--debug"
+      - "--cluster"
+      - "nats://0.0.0.0:6222"
+      - "--http_port"
+      - "8222"
+      - "--port"
+      - "4222"
+      - "--routes"
+      - "nats://nats-1:6222"
+    image: "nats:2.8.4"
+    networks:
+      - main
+    ports:
+      - "24222:4222"
+      - "28222:8222"
+  nats-3:
+    command:
+      - "--debug"
+      - "--cluster"
+      - "nats://0.0.0.0:6222"
+      - "--http_port"
+      - "8222"
+      - "--port"
+      - "4222"
+      - "--routes"
+      - "nats://nats-1:6222"
+    image: "nats:2.8.4"
+    networks:
+      - main
+    ports:
+      - "34222:4222"
+      - "38222:8222"
+version: "3.7"
+

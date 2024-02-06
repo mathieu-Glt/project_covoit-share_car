@@ -1,0 +1,16 @@
+{
+  "env": "production",
+  "log": {
+    "format": "prod",
+    "dir": "../../logs"
+  },
+  "cors": {
+    "origin": true,
+    "credentials": true
+  },
+  "upstream": {
+    "default": "http://127.0.0.1:3000/",
+    "ms-auth": "http://localhost:3001/",
+    "ms-media": "http://ms-medias:3000/"
+  }
+}
